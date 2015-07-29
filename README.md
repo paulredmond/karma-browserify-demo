@@ -10,3 +10,9 @@ npm install
 npm test # run tests with PhantomJS and exit
 npm tdd # listens for file changes and re-runs tests.
 ```
+
+Recommend installing karma globally:
+
+```
+npm install -g karma
+```
