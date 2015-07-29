@@ -1,4 +1,4 @@
-var Person = require('../src/Person');
+var Person = require('../../src/Person');
 
 describe('A demo test', function() {
   var subject;

@@ -15,8 +15,11 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'test/**/*Spec.js',
-      'src/*.js'
+      './node_modules/jquery/dist/jquery.min.js',
+      './node_modules/underscore/underscore.js',
+      './node_modules/backbone/backbone-min.js',
+      './test/**/*Spec.js',
+      './src/*.js'
     ],
 
 
@@ -28,6 +31,8 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+        "test/test_helper.js": ['browserify'],
+        "test/helpers/*Helper.js": ['browserify'],
         "test/**/*Spec.js": ['browserify'],
         "src/*.js": ['browserify']
     },
