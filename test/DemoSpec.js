@@ -18,6 +18,15 @@ describe('Immutable demo', function() {
       expect(subject.set("foo", "buzz")).to.not.equal(subject);
     });
 
+    it ('can compare changes', function() {
+      var subject = Immutable.Map({ foo: "bar", fizz: "buzz" });
+      var subject2 = subject.set("foo", "bar");
+      var subject3 = subject.set("foo", "fizz");
+
+      expect(subject2).to.equal(subject);
+      expect(subject3).to.not.equal(subject);
+    });
+
     it ('can be "copied" with a reference', function() {
       subject = Immutable.Map({ foo: "bar" });
       var copy = subject;
