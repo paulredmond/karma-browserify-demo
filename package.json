@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "env"  : "NPM_EXEC=$(npm bin):$PATH",
+    "test" : "npm run env && $NPM_EXEC karma start --single-run --browsers=PhantomJS",
+    "ci"   : "npm run env && $NPM_EXEC karma start --single-run",
+    "tdd"  : "npm run env && $NPM_EXEC karma start"
   },
   "keywords": [],
   "author": "",
