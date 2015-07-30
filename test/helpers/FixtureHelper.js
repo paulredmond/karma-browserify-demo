@@ -37,11 +37,11 @@ module.exports = {
 
   addBaseFixture: function() {
     if (!module.exports.hasContainer()) {
-      $("body").prepend(
-        _.template('<div id="<%= id %>"></div>')({
-          id: module.exports.containerId
-        })
-      );
+      var template = _.template('<div id="<%= id %>"></div>')({
+        id: module.exports.containerId
+      });
+
+      $(template).appendTo("body");
     }
   },
 
