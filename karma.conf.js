@@ -34,6 +34,7 @@ module.exports = function(config) {
         "test/test_helper.js": ['browserify'],
         "test/helpers/*Helper.js": ['browserify'],
         "test/**/*Spec.js": ['browserify'],
+        "src/*.js": ['coverage'],
         "src/*.js": ['browserify']
     },
 
@@ -41,7 +42,7 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['coverage'],
 
 
     // web server port
@@ -68,6 +69,20 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false
-  })
+    singleRun: false,
+
+    browserify: {
+      debug: true,
+      transform: [
+        ['browserify-istanbul', {
+          ignore: ['**/test/**', '**/node_modules/**']
+        }]
+      ]
+    },
+
+    coverageReporter: {
+        type: 'html',
+        dir: 'test/coverage/'
+    }
+  });
 }
